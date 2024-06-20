@@ -1,0 +1,13 @@
+.button{
+    width: 100%;
+    background-color: #220930;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    color:white;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Space-Grotesk', sans-serif;
+
+}
