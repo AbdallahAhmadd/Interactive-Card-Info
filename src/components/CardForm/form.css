@@ -1,0 +1,54 @@
+.form-container input{
+    border-radius: 8px;
+    border: 2px solid hsl(270, 3%, 87%);
+    padding: 10px;
+    transition: border 0.4s ease;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+
+}
+
+.form-container input:focus {
+    border: 2px solid hsl(278, 94%, 30%);
+    border-radius: 8px; /* Ensure border-radius is applied */
+    outline: none; /* Remove default outline */
+
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Add some spacing between elements */
+
+}
+.form-container p{
+    margin: 0 0 10px 0;
+}
+
+.form-container_credentials{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-container_credentials_expiry-container{
+    width: 50%;
+    margin-right: 20px;
+
+}
+
+.form-container_credentials_expiry-container_month-year{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+.form-container_credentials_ccv{
+    width: 50%;
+
+}
+
+.form-container_credentials_expiry-container_month-year input{
+    width: 47%;
+
+}
