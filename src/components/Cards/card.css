@@ -50,4 +50,17 @@
     width: 308px;
 }
 
+.cvv{
+    position: absolute;
+    font-size: 18px;
+    font-family: 'Space-Grotesk', sans-serif;
+    color: white;
+    z-index: 1;
+    top: 13.5%; /* Adjust as needed */
+    left: 100px; /* Adjust as needed */
+    display: flex;
+    justify-content: right;
+    width: 308px;
+}
+
 
