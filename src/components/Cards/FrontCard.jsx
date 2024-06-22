@@ -10,18 +10,22 @@ function FrontCard(){
     return(
 
         <div className={'front-card-container'}>
-
-            <img src={FrontCardImage} alt={'front credit card image'}/>
+            <img className={'front-card-image'} src={FrontCardImage} alt={'front credit card image'}/>
             <div className={'circle'}/>
             <div className={'circle2'}/>
-            <span className="card-number">{cardNumber}</span>
 
-            <div className={'card-info'}>
-                <span className="expiry-date">{expiryDate}</span>
-                <span className="cardholder-name">{cardholderName}</span>
+            <div className={'card-data-container'}>
+                <div className={'card-number'}>
+                    <p>{cardNumber}</p>
+                </div>
+                <div className={'card-credentials'}>
+                    <p className={'expiryDate'}>{expiryDate}</p>
+                    <p className={'cardholderName'}>{cardholderName}</p>
+                </div>
             </div>
 
         </div>
+
 
     );
 

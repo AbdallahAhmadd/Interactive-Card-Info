@@ -5,8 +5,8 @@
     width: 50px;
     background-color: white;
     z-index: 1;
-    top: 8%; /* Adjust as needed */
-    left: 2%; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
 }
 .circle2{
     position: absolute;
@@ -16,51 +16,66 @@
     background-color: transparent;
     border: 1px solid white;
     z-index: 1;
-    top: 14%; /* Adjust as needed */
-    left: 70px; /* Adjust as needed */
+    top: 35px; /* Adjust as needed */
+    left: 90px; /* Adjust as needed */
 }
-
 .front-card-container{
     position: relative;
-    z-index: 0;
-    width: 33%;
-
+    width:fit-content;
 }
-
-.card-number{
+.card-data-container{
+    width: 100%;
     position: absolute;
-    font-size: 28px;
-    font-family: 'Space-Grotesk', sans-serif;
+    top: 90px;
+    padding:0;
+    margin:0;
+}
+.card-number{
+    width: 100%;
     color: white;
     z-index: 1;
-    top: 50%; /* Adjust as needed */
-    left: 60px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    font-family: 'Space-Grotesk', sans-serif;
+    font-size: 28px;
+    padding:0;
+    margin:0;
 }
 
-.card-info{
-    position: absolute;
-    font-size: 18px;
+.card-credentials{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    padding:0;
+    margin:0;
+    padding-left: 70px;
+    padding-right: 70px;
     font-family: 'Space-Grotesk', sans-serif;
     color: white;
-    z-index: 3;
-    top: 80%; /* Adjust as needed */
-    left: 60px; /* Adjust as needed */
-    display: flex;
-    justify-content: space-between;
-    width: 308px;
+}
+
+/*------------------------------------------------------------*/
+
+.back-card-container{
+    position: relative;
+    width:fit-content;
 }
 
 .cvv{
     position: absolute;
-    font-size: 18px;
-    font-family: 'Space-Grotesk', sans-serif;
+    top: 108px;
+    left: 350px;
     color: white;
-    z-index: 1;
-    top: 13.5%; /* Adjust as needed */
-    left: 100px; /* Adjust as needed */
-    display: flex;
-    justify-content: right;
-    width: 308px;
+    font-size: 20px;
+    font-family: 'Space-Grotesk', sans-serif;
 }
 
+/*------------------------------------------------------------*/
 
+.two-cards-holder{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: fit-content;
+}
