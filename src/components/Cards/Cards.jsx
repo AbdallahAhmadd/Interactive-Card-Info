@@ -2,15 +2,16 @@ import './card.css'
 import FrontCard from "./FrontCard.jsx";
 import BackCard from "./BackCard.jsx";
 
-function Cards(){
+function Cards({ cardNumber, ccv, expiryYear, cardholderName,expiryMonth }){
+
     return(
 
             <div className={'two-cards-holder'}>
                 <div >
-                    <FrontCard/>
+                    <FrontCard cardNumber={cardNumber} cardholderName={cardholderName} expiryYear={expiryYear} expiryMonth={expiryMonth}/>
                 </div>
                 <div style={{marginLeft:'100px'}}>
-                    <BackCard/>
+                    <BackCard ccv={ccv}/>
                 </div>
             </div>
 

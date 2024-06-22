@@ -2,10 +2,10 @@ import FrontCardImage from '../../assets/bg-card-front.png';
 import './card.css'
 import React from 'react';
 
-function FrontCard(){
-    const [cardNumber, setCardNumber] = React.useState('0000 0000 0000 0000');
-    const [expiryDate, setExpiryDate] = React.useState('00/00');
-    const [cardholderName, setCardholderName] = React.useState('FULL NAME');
+function FrontCard({cardNumber, expiryMonth, cardholderName, expiryYear}){
+    function formatCardNumber(number) {
+        return number.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim();
+    }
 
     return(
 
@@ -16,11 +16,11 @@ function FrontCard(){
 
             <div className={'card-data-container'}>
                 <div className={'card-number'}>
-                    <p>{cardNumber}</p>
+                    <p>{cardNumber===''? '0000 0000 0000 0000': formatCardNumber(cardNumber)}</p>
                 </div>
                 <div className={'card-credentials'}>
-                    <p className={'expiryDate'}>{expiryDate}</p>
-                    <p className={'cardholderName'}>{cardholderName}</p>
+                    <p className={'expiryDate'}>{expiryMonth==='' ? '00' :expiryMonth}/{expiryYear===''? '00' :  expiryYear}</p>
+                    <p className={'cardholderName'}>{cardholderName===''? 'Your Name': cardholderName }</p>
                 </div>
             </div>
 
