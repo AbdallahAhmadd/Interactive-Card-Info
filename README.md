@@ -40,4 +40,9 @@ A component that displays the back view of the credit card, showing the CCV.
 ### Form
 A component that provides input fields for entering the card number, cardholder name, expiry date, and CCV. It updates the state in `MainPage` in real-time as the user types.
 
-## File Structure
+## Future Enhancements
+- Add validation for card number, expiry date, and CCV.
+- Improve the UI/UX of the form and card display.
+- Add animations for card flip to show the back view when entering the CCV.
+- Support for multiple card types with corresponding card designs.
+
