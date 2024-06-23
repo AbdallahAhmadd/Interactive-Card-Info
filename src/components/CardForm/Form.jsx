@@ -1,8 +1,21 @@
 import './form.css'
 import Button from "../Button/button.jsx";
+import React, {useState} from "react";
+
+function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setExpiryYear,onSubmit}){
+    const [cardNumber, setCardNumberState] = useState('');
+
+    const formatCardNumber = (value) => {
+        return value.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim();
+    };
+
+    const handleCardNumberChange = (e) => {
+        const formattedValue = formatCardNumber(e.target.value);
+        setCardNumberState(formattedValue);
+        setCardNumber(formattedValue.replace(/\s/g, '')); // Remove spaces for the state update
+    };
 
 
-function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setExpiryYear}){
 
 
     return(
@@ -17,7 +30,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
 
             <div className={'form-container_card-number'}>
                 <p>CARD NUMBER</p>
-                <input placeholder={'e.g. 1234 9999 2222 0000'} onChange={(e)=>setCardNumber(e.target.value)}/>
+                <input placeholder={'e.g. 1234 9999 2222 0000'}  onChange={handleCardNumberChange} value={cardNumber}/>
             </div>
 
 
@@ -39,7 +52,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
 
             </div>
 
-            <Button/>
+            <Button onClick={onSubmit}/>
 
 
         </div>

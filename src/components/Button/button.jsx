@@ -1,11 +1,9 @@
 import './button.css'
 
-function Button(props){
-    // eslint-disable-next-line react/prop-types
-   const {text = 'Confirm'} = props;
+function Button({text='Confirm',onClick}){
 
     return(
-        <button className='button'>
+        <button className='button' onClick={onClick}>
             {text}
         </button>
 
