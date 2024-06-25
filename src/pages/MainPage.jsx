@@ -13,17 +13,26 @@ function MainPage(){
     const[isConfirmed, setIsConfirmed] = React.useState(false);
 
 
-   function handleConfirm(){
-       setIsConfirmed(!isConfirmed);
-       if(isConfirmed){
-           setCardNumber('0000 0000 0000 0000');
-           setExpiryMonth('00');
-           setExpiryYear('00');
-           setCardholderName('FULL NAME');
-           setCcv('000');
+   function handleConfirm(isValid){
+       if(isValid){
+           setIsConfirmed(true);
+           console.log('Card details are confirmed')
+       }
+       else{
+           setIsConfirmed(false)
+           console.log('Card details are not confirmed')
        }
 
+
    }
+    function handleContinue() {
+        setIsConfirmed(false);
+        setCardNumber('0000 0000 0000 0000');
+        setExpiryMonth('00');
+        setExpiryYear('00');
+        setCardholderName('FULL NAME');
+        setCcv('000');
+    }
 
 
 return(
@@ -47,22 +56,18 @@ return(
 
 
         <div className={'card-form-container'}>
-            {/*{*/}
-            {/*!isConfirmed &&*/}
-            <Form
-                setExpiryMonth={setExpiryMonth}
-                setExpiryYear={setExpiryYear}
-                setCardNumber={setCardNumber}
-                setCardholderName={setCardholderName}
-                setCcv={setCcv}
-                onSubmit={handleConfirm}
+            {!isConfirmed ? (
+                <Form
+                    setExpiryMonth={setExpiryMonth}
+                    setExpiryYear={setExpiryYear}
+                    setCardNumber={setCardNumber}
+                    setCardholderName={setCardholderName}
+                    setCcv={setCcv}
+                    onSubmit={handleConfirm}
                 />
-            {/*}*/}
-
-            {/*{*/}
-            {/*    isConfirmed &&*/}
-            {/*        <ThankYou onContinue={handleConfirm} />*/}
-            {/*}*/}
+            ) : (
+                <ThankYou onContinue={handleContinue} />
+            )}
         </div>
 
     </div>

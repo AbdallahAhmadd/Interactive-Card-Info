@@ -74,17 +74,20 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Check if any field is empty and set the corresponding state
-        if (cardNumber.trim() === '') setcardNumberEmpty(true);
-        if (ccv.trim() === '') setCcvEmpty(true);
-        if (expiryMonth.trim() === '') setExpiryMonthEmpty(true);
-        if (expiryYear.trim() === '') setExpiryYearEmpty(true);
-        if (cardholderName.trim() === '') setCardholderNameEmpty(true);
+
+        setcardNumberEmpty(cardNumber.trim() === '');
+        setCcvEmpty(ccv.trim() === '');
+        setExpiryMonthEmpty(expiryMonth.trim() === '');
+        setExpiryYearEmpty(expiryYear.trim() === '');
+        setCardholderNameEmpty(cardholderName.trim() === '');
 
         // If all fields are valid, submit the form
-        if (!cardNumberEmpty && !ccvEmpty && !expiryMonthEmpty && !expiryYearEmpty && !cardholderNameEmpty) {
-            onSubmit();
-        }
+        // After updating the empty states, check if any field is empty
+        const isValid = cardNumber.trim() !== '' && ccv.trim() !== '' && expiryMonth.trim() !== '' && expiryYear.trim() !== '' && cardholderName.trim() !== '';
+
+        // Call onSubmit with the validity
+        onSubmit(isValid);
+
     };
 
     return(
