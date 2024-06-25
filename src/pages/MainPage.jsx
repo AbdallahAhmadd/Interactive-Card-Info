@@ -26,9 +26,6 @@ function MainPage(){
    }
 
 
-    const handleCardNumber = (e) => {
-        setCardNumber(e.target.value);
-    }
 return(
     <div className={'main-page-container'}>
 
@@ -50,8 +47,8 @@ return(
 
 
         <div className={'card-form-container'}>
-            {
-            !isConfirmed &&
+            {/*{*/}
+            {/*!isConfirmed &&*/}
             <Form
                 setExpiryMonth={setExpiryMonth}
                 setExpiryYear={setExpiryYear}
@@ -60,12 +57,12 @@ return(
                 setCcv={setCcv}
                 onSubmit={handleConfirm}
                 />
-            }
+            {/*}*/}
 
-            {
-                isConfirmed &&
-                    <ThankYou onContinue={handleConfirm} />
-            }
+            {/*{*/}
+            {/*    isConfirmed &&*/}
+            {/*        <ThankYou onContinue={handleConfirm} />*/}
+            {/*}*/}
         </div>
 
     </div>

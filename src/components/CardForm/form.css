@@ -5,8 +5,6 @@
     transition: border 0.4s ease;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-
-
 }
 
 .form-container input:focus {
@@ -18,7 +16,6 @@
 .form-container{
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Add some spacing between elements */
     margin-left: 15%;
 
 }
@@ -35,6 +32,9 @@
     width: 50%;
     margin-right: 20px;
 
+}
+.form-container_cardholder-name  ,.form-container_card-number , .form-container_credentials{
+    min-height: 100px;
 }
 
 .form-container_credentials_expiry-container_month-year{

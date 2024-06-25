@@ -9,6 +9,12 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
     const [expiryYear, setExpiryYearState] = useState('');
     const [cardholderName, setCardholderNameState] = useState('');
 
+    const[cardNumberEmpty,setcardNumberEmpty] = useState(false);
+    const [expiryMonthEmpty,setExpiryMonthEmpty] = useState(false);
+    const [expiryYearEmpty,setExpiryYearEmpty] = useState(false);
+    const [cardholderNameEmpty,setCardholderNameEmpty] = useState(false);
+    const [ccvEmpty,setCcvEmpty] = useState(false);
+
     const formatCardNumber = (value) => {
         return value.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim();
     };
@@ -27,6 +33,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
     const handleCardNumberChange = (e) => {
         const value = e.target.value.replace(/\s/g, ''); // Remove any spaces
         const isValid = /^[0-9]*$/.test(value); // Check if the value contains only digits
+
 
         if (isValid || value === "") {
             const formattedValue = formatCardNumber(value); // Format the card number
@@ -58,9 +65,25 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
         const value = e.target.value.replace(/\s/g, ''); // Remove any spaces
         const isValid = /^[0-9]*$/.test(value); // Check if the value contains only digits
 
-        if ( (isValid || value === "")  ) {
-            setExpiryYear(value); // Update the CVV state with the validated value
-            setExpiryYearState(value); // Update the CVV state without spaces
+
+            if ((isValid || value === "")) {
+                setExpiryYear(value); // Update the CVV state with the validated value
+                setExpiryYearState(value); // Update the CVV state without spaces
+            }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Check if any field is empty and set the corresponding state
+        if (cardNumber.trim() === '') setcardNumberEmpty(true);
+        if (ccv.trim() === '') setCcvEmpty(true);
+        if (expiryMonth.trim() === '') setExpiryMonthEmpty(true);
+        if (expiryYear.trim() === '') setExpiryYearEmpty(true);
+        if (cardholderName.trim() === '') setCardholderNameEmpty(true);
+
+        // If all fields are valid, submit the form
+        if (!cardNumberEmpty && !ccvEmpty && !expiryMonthEmpty && !expiryYearEmpty && !cardholderNameEmpty) {
+            onSubmit();
         }
     };
 
@@ -70,13 +93,24 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
 
             <div className={'form-container_cardholder-name'}>
                 <p>CARDHOLDER NAME</p>
-               <input placeholder={'e.g. Jane Appleseed'} onChange={handleCardholderNameChange} value={cardholderName}/>
+                <input placeholder={'e.g. Jane Appleseed'} onChange={handleCardholderNameChange}
+                       value={cardholderName}/>
+                {cardholderNameEmpty && (
+                <div style={{marginBottom: '0px', padding: '0px'}}>
+                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                </div>)}
             </div>
 
 
             <div className={'form-container_card-number'}>
                 <p>CARD NUMBER</p>
-                <input  maxLength={'19'} placeholder={'e.g. 1234 9999 2222 0000'}  onChange={handleCardNumberChange} value={cardNumber} />
+                <input maxLength={'19'} placeholder={'e.g. 1234 9999 2222 0000'} onChange={handleCardNumberChange}
+                       value={cardNumber}/>
+
+                {cardNumberEmpty && (<div style={{marginBottom: '0px', padding: '0px'}}>
+                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                </div>)}
+
             </div>
 
 
@@ -88,18 +122,27 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
                         <input  maxLength={'2'} placeholder={'MM'} onChange={handleMonthChange} value={expiryMonth}/>
                         <input  maxLength={'2'} placeholder={'YY'} onChange={handeYearChange} value={expiryYear}/>
                     </div>
+                    { (expiryYearEmpty || expiryMonthEmpty) &&(
+                    <div>
+                        <p style={{fontSize:'12px',color:'red',marginTop:'4px'}}>Cant be blank</p>
+                    </div>)
+                    }
 
                 </div>
 
                 <div className={'form-container_credentials_ccv'}>
-                        <p>CCV</p>
-                        <input maxLength={'4'} placeholder={'e.g. 123'} onChange={handleCvvChange} value={ccv} />
+                    <p>CCV</p>
+                    <input maxLength={'4'} placeholder={'e.g. 123'} onChange={handleCvvChange} value={ccv}/>
+
+                    {ccvEmpty &&(
+                    <div style={{marginBottom: '0px', padding: '0px'}}>
+                        <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                    </div>)}
                 </div>
 
             </div>
 
-            <Button onClick={onSubmit}/>
-
+            <Button onClick={handleSubmit}/>
 
         </div>
 
