@@ -100,7 +100,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
                        value={cardholderName}/>
                 {cardholderNameEmpty && (
                 <div style={{marginBottom: '0px', padding: '0px'}}>
-                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Can't be blank</p>
                 </div>)}
             </div>
 
@@ -111,7 +111,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
                        value={cardNumber}/>
 
                 {cardNumberEmpty && (<div style={{marginBottom: '0px', padding: '0px'}}>
-                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                    <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Can't be blank</p>
                 </div>)}
 
             </div>
@@ -127,7 +127,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
                     </div>
                     { (expiryYearEmpty || expiryMonthEmpty) &&(
                     <div>
-                        <p style={{fontSize:'12px',color:'red',marginTop:'4px'}}>Cant be blank</p>
+                        <p style={{fontSize:'12px',color:'red',marginTop:'4px'}}>Can't be blank</p>
                     </div>)
                     }
 
@@ -139,7 +139,7 @@ function CardForm({setCardNumber, setExpiryMonth, setCardholderName, setCcv,setE
 
                     {ccvEmpty &&(
                     <div style={{marginBottom: '0px', padding: '0px'}}>
-                        <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Cant be blank</p>
+                        <p style={{fontSize: '12px', color: 'red', marginTop: '4px'}}>Can't be blank</p>
                     </div>)}
                 </div>
 
