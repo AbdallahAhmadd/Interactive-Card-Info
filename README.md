@@ -6,7 +6,9 @@ This project is a React application that displays a credit card with its details
 ## Screenshots
 
 <img width="1440" alt="Screenshot 2024-06-22 at 11 21 27 PM" src="https://github.com/AbdallahAhmadd/Interactive-Card-Info/assets/101679255/3282ab7e-2f1e-44d6-94eb-fc41661a6066">
-<img width="1440" alt="Screenshot 2024-06-22 at 11 21 59 PM" src="https://github.com/AbdallahAhmadd/Interactive-Card-Info/assets/101679255/aefd9193-22de-4c9c-991d-d8261fef3434">
+<img width="1440" alt="Screenshot 2024-06-25 at 1 27 46 PM" src="https://github.com/AbdallahAhmadd/Interactive-Card-Info/assets/101679255/06d8913b-698f-440e-97a3-8ed72e2d6ddd">
+<img width="1440" alt="Screenshot 2024-06-25 at 1 28 09 PM" src="https://github.com/AbdallahAhmadd/Interactive-Card-Info/assets/101679255/4c2df01f-d979-4217-a0b0-576fa89df3f1">
+
 
 
 
